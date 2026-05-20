@@ -5,7 +5,7 @@ function resolveApiBaseUrl() {
   const configured = process.env.NEXT_PUBLIC_API_URL?.trim();
 
   if (!configured) {
-    return "http://localhost:3005/api/v1";
+    return "https://api.adtechhomes.co.ke/api/v1";
   }
 
   const normalized = configured.endsWith("/")
