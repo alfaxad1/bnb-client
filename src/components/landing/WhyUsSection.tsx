@@ -1,25 +1,25 @@
-import { BadgeCheck, CalendarCheck2, Headset, ShieldCheck } from 'lucide-react';
+import { BadgeCheck, CalendarCheck2, Headset, ShieldCheck } from "lucide-react";
 
 const features = [
   {
     icon: BadgeCheck,
-    title: 'Verified Properties',
-    text: 'Every listing is reviewed to ensure quality, safety, and trust.',
+    title: "Verified Properties",
+    text: "Every listing is reviewed to ensure quality, safety, and trust.",
   },
   {
     icon: CalendarCheck2,
-    title: 'Instant Booking',
-    text: 'Reserve your stay in minutes with transparent pricing and fast checkout.',
+    title: "Instant Booking",
+    text: "Reserve your stay in minutes with transparent pricing and fast checkout.",
   },
   {
     icon: Headset,
-    title: '24/7 Support',
-    text: 'Need help? Our support team is always one message away.',
+    title: "24/7 Support",
+    text: "Need help? Our support team is always one message away.",
   },
   {
     icon: ShieldCheck,
-    title: 'Best Price Guarantee',
-    text: 'We keep rates fair with owner-direct pricing and no hidden fees.',
+    title: "Best Price Guarantee",
+    text: "We keep rates fair with owner-direct pricing and no hidden fees.",
   },
 ];
 
@@ -27,13 +27,18 @@ export function WhyUsSection() {
   return (
     <section className="bg-muted py-20">
       <div className="container-shell">
-        <h2 className="text-center text-3xl font-semibold sm:text-4xl">Why Choose StayEasy?</h2>
+        <h2 className="text-center text-3xl font-semibold sm:text-4xl">
+          Why Choose Adtech Homes?
+        </h2>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <article key={feature.title} className="rounded-2xl border border-secondary/10 bg-white p-5 shadow-soft">
+              <article
+                key={feature.title}
+                className="rounded-2xl border border-secondary/10 bg-white p-5 shadow-soft"
+              >
                 <span className="inline-flex rounded-xl bg-muted p-3 text-secondary">
                   <Icon size={20} />
                 </span>

@@ -39,7 +39,7 @@ export function AuthLayout({
       <div className="flex items-center justify-center px-6 py-12">
         <div className="w-full max-w-md space-y-6">
           <Link href="/" className="inline-block text-3xl font-bold text-secondary">
-            StayEasy
+            Adtech Homes
           </Link>
           <Link href="/" className="inline-block text-sm font-medium text-dark/70 underline-offset-2 hover:text-secondary hover:underline">
             Back to Home

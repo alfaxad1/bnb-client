@@ -1,12 +1,14 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export function Footer() {
   return (
     <footer className="bg-secondary text-white">
       <div className="container-shell grid gap-8 py-12 md:grid-cols-2 lg:grid-cols-4">
         <div>
-          <h3 className="text-2xl font-semibold !text-white">StayEasy</h3>
-          <p className="mt-3 text-sm text-white/80">Find curated stays and manage bookings without friction.</p>
+          <h3 className="text-2xl font-semibold !text-white">Adtech Homes</h3>
+          <p className="mt-3 text-sm text-white/80">
+            Find curated stays and manage bookings without friction.
+          </p>
         </div>
 
         <div>
@@ -51,7 +53,7 @@ export function Footer() {
 
       <div className="border-t border-white/20">
         <div className="container-shell py-4 text-center text-sm text-white/70">
-          {new Date().getFullYear()} StayEasy. All rights reserved.
+          {new Date().getFullYear()} Adtech Homes. All rights reserved.
         </div>
       </div>
     </footer>

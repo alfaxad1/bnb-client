@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 export function HeroSection() {
   return (
@@ -13,20 +13,19 @@ export function HeroSection() {
           Discover Exceptional Stays Crafted for Modern Travelers
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-base text-white/90 sm:text-lg">
-          Browse curated homes, book in minutes, and unlock seamless hosting experiences.
+          Browse curated homes, book in minutes, and unlock seamless hosting
+          experiences.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <a href="#properties" className="btn-primary">
             Explore Properties
           </a>
-          <Link href="/register" className="btn-ghost border-white/50 text-white hover:bg-white/10">
+          {/* <Link href="/register" className="btn-ghost border-white/50 text-white hover:bg-white/10">
             List Your Property
-          </Link>
+          </Link> */}
         </div>
       </div>
-
-   
     </section>
   );
 }

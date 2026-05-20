@@ -16,7 +16,7 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "StayEasy | Your Next Stay, Sorted",
+  title: "Adtech Homes | Your Next Stay, Sorted",
   description: "A complete booking platform for guests, owners, and admins.",
 };
 

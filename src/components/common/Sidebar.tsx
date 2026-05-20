@@ -65,7 +65,7 @@ export function Sidebar({ role, isOpen, onClose, onLogout }: SidebarProps) {
       >
         <div className="mb-8 flex items-center justify-between">
           <Link href="/" className="text-2xl font-bold text-secondary">
-            StayEasy
+            Adtech Homes
           </Link>
           <button type="button" onClick={onClose} className="rounded-lg p-1 text-secondary lg:hidden">
             <X size={18} />

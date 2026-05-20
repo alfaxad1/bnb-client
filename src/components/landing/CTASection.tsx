@@ -6,7 +6,7 @@ export function CTASection() {
       <div className="container-shell text-center">
         <h2 className="text-3xl font-semibold !text-white sm:text-4xl">Ready to find your perfect stay?</h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm text-white/80">
-          Join thousands of travelers and hosts already building unforgettable experiences with StayEasy.
+          Join thousands of travelers and hosts already building unforgettable experiences with Adtech Homes.
         </p>
 
         <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

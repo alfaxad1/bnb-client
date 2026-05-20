@@ -12,7 +12,7 @@ export function AboutSection() {
         <div>
           <h2 className="text-3xl font-semibold sm:text-4xl">Built for guests who crave comfort and confidence</h2>
           <p className="mt-5 max-w-xl text-dark/75">
-            StayEasy brings travelers and trusted hosts together in one polished experience. From discovery to
+            Adtech Homes brings travelers and trusted hosts together in one polished experience. From discovery to
             checkout, every touchpoint is designed to feel calm, transparent, and fast.
           </p>
         </div>
