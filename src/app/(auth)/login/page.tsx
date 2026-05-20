@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -27,7 +27,8 @@ function getRedirectPath(role: AuthResponse['user']['role']) {
   return '/user/bookings';
 }
 
-export default function LoginPage() {
+// 1. We move the form content here so it can use `useSearchParams()` safely inside the Suspense context
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const setAuth = useAuthStore((state) => state.setAuth);
@@ -97,5 +98,13 @@ export default function LoginPage() {
         </button>
       </form>
     </AuthLayout>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<LoadingSpinner className="min-h-screen" label="Loading sign in details..." />}>
+      <LoginForm />
+    </Suspense>
   );
 }
