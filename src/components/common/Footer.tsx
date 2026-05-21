@@ -44,9 +44,9 @@ export function Footer() {
         <div>
           <h4 className="text-lg font-semibold !text-white">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm text-white/80">
-            <li>support@stayeasy.com</li>
-            <li>+1 (555) 010-2026</li>
-            <li>San Francisco, CA</li>
+            <li>adtek2026@gmail.com</li>
+            <li>+254 759 155 914 or +254 113 863 614</li>
+            <li>Mombasa, Nyali, Beach Rd</li>
           </ul>
         </div>
       </div>

@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
-import { useParams } from 'next/navigation';
-import { Navbar } from '@/components/common/Navbar';
-import { Footer } from '@/components/common/Footer';
-import { LoadingSpinner } from '@/components/common/LoadingSpinner';
-import api from '@/lib/axios';
-import { formatCurrency, getReadableError } from '@/lib/utils';
-import type { Property } from '@/types';
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { useParams } from "next/navigation";
+import { Navbar } from "@/components/common/Navbar";
+import { Footer } from "@/components/common/Footer";
+import { LoadingSpinner } from "@/components/common/LoadingSpinner";
+import api from "@/lib/axios";
+import { formatCurrency, getReadableError } from "@/lib/utils";
+import type { Property } from "@/types";
 
 const fallbackImage =
-  'https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80';
+  "https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1200&q=80";
 
 export default function PropertyDetailsPage() {
   const params = useParams<{ id: string }>();
@@ -30,7 +30,7 @@ export default function PropertyDetailsPage() {
         const response = await api.get<Property>(`/properties/${params.id}`);
         setProperty(response.data);
       } catch (err) {
-        setError(getReadableError(err, 'Could not load property details.'));
+        setError(getReadableError(err, "Could not load property details."));
       } finally {
         setLoading(false);
       }
@@ -42,7 +42,9 @@ export default function PropertyDetailsPage() {
   const galleryImages = useMemo(() => {
     if (!property) return [fallbackImage];
 
-    const images = [property.mainImage, ...(property.images ?? [])].filter(Boolean) as string[];
+    const images = [property.mainImage, ...(property.images ?? [])].filter(
+      Boolean,
+    ) as string[];
     const unique = Array.from(new Set(images));
 
     return unique.length > 0 ? unique : [fallbackImage];
@@ -72,7 +74,9 @@ export default function PropertyDetailsPage() {
         <Navbar />
         <main className="bg-primary py-16">
           <div className="container-shell space-y-4">
-            <p className="rounded-xl bg-red-50 p-4 text-sm text-red-700">{error ?? 'Property not found.'}</p>
+            <p className="rounded-xl bg-red-50 p-4 text-sm text-red-700">
+              {error ?? "Property not found."}
+            </p>
             <Link href="/properties" className="btn-ghost inline-flex">
               Back to Properties
             </Link>
@@ -97,7 +101,8 @@ export default function PropertyDetailsPage() {
               <header>
                 <h1 className="text-3xl font-semibold">{property.name}</h1>
                 <p className="mt-1 text-sm text-dark/70">
-                  {property.location.address}, {property.location.city}, {property.location.country}
+                  {property.location.address}, {property.location.city},{" "}
+                  {property.location.country}
                 </p>
               </header>
 
@@ -120,7 +125,9 @@ export default function PropertyDetailsPage() {
                     key={`${image}-${index}`}
                     onClick={() => setSelectedImageIndex(index)}
                     className={`overflow-hidden rounded-lg border ${
-                      index === selectedImageIndex ? 'border-secondary' : 'border-secondary/15'
+                      index === selectedImageIndex
+                        ? "border-secondary"
+                        : "border-secondary/15"
                     }`}
                   >
                     <div className="relative h-20 w-full">
@@ -139,15 +146,18 @@ export default function PropertyDetailsPage() {
               <div className="space-y-3 rounded-xl bg-muted p-4 text-sm text-dark/80">
                 <p>{property.description}</p>
                 <p>
-                  <span className="font-semibold text-secondary">Price:</span> {formatCurrency(property.pricePerNight)} per
-                  night
+                  <span className="font-semibold text-secondary">Price:</span>{" "}
+                  {formatCurrency(property.pricePerNight)} per night
                 </p>
                 <p>
-                  <span className="font-semibold text-secondary">Max Guests:</span> {property.maxGuests}
+                  <span className="font-semibold text-secondary">
+                    Max Guests:
+                  </span>{" "}
+                  {property.maxGuests}
                 </p>
-                <p>
+                {/* <p>
                   <span className="font-semibold text-secondary">Hosted by:</span> {property.owner?.name ?? 'Verified Owner'}
-                </p>
+                </p> */}
               </div>
 
               {property.rules?.length ? (
@@ -163,15 +173,70 @@ export default function PropertyDetailsPage() {
             </article>
 
             <aside className="rounded-2xl border border-secondary/10 bg-white p-5 shadow-soft">
-              <h2 className="text-xl font-semibold">Book this stay</h2>
-              <p className="mt-1 text-sm text-dark/70">Sign in to choose dates and complete your booking.</p>
+              <h2 className="text-xl font-semibold">Payment Details</h2>
+              <p className="mt-1 text-sm text-dark/70">
+                To complete your booking, please make a payment using one of the
+                options below.
+              </p>
 
-              <Link
-                href={`/login?next=${encodeURIComponent(`/properties/${property._id}`)}`}
-                className="btn-primary mt-4 inline-flex w-full justify-center"
-              >
-                Login to book now
-              </Link>
+              <div className="mt-5 space-y-4">
+                <div className="rounded-xl bg-muted p-4 space-y-4">
+                  <h3 className="font-semibold text-secondary border-b border-secondary/10 pb-2">
+                    Option 1: Paybill
+                  </h3>
+                  <div className="flex items-center justify-between border-b border-secondary/10 pb-2">
+                    <span className="font-medium text-dark/70">
+                      Paybill Number:
+                    </span>
+                    <span className="font-bold text-secondary text-lg">
+                      247247
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between border-b border-secondary/10 pb-2">
+                    <span className="font-medium text-dark/70">
+                      Account Number:
+                    </span>
+                    <span className="font-bold text-secondary text-lg">
+                      128 499 0052
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="font-medium text-dark/70">
+                      Account Name:
+                    </span>
+                    <span className="font-bold text-secondary text-lg">
+                      ADTECH AGENCIES
+                    </span>
+                  </div>
+                </div>
+
+                <div className="rounded-xl bg-muted p-4 space-y-4">
+                  <h3 className="font-semibold text-secondary border-b border-secondary/10 pb-2">
+                    Option 2: Buy Goods
+                  </h3>
+                  <div className="flex items-center justify-between border-b border-secondary/10 pb-2">
+                    <span className="font-medium text-dark/70">
+                      Till Number:
+                    </span>
+                    <span className="font-bold text-secondary text-lg">
+                      3493078
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between pt-1">
+                    <span className="font-medium text-dark/70">Till Name:</span>
+                    <span className="font-bold text-secondary text-lg">
+                      ADTECH AGENCIES
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="mt-4 text-center text-xs text-dark/60">
+                Contact us on{" "}
+                <span className="font-bold text-secondary">
+                  +254 759 155 914 or +254 113 863 614
+                </span>
+              </p>
             </aside>
           </div>
         </section>
